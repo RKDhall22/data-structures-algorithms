@@ -131,7 +131,7 @@ bool BruteApproach_2( int arr[] , int n){
     }
 }
 
-// 2nd Approach : Optimal One --> lets find the firstindex whose values is less than the previous element. And from there reverse the nums from firstindex to nums.size() and from 0 to firstindex -1.
+// 2nd Approach : Optimal One --> lets find the firstindex whose value is less than the previous element. And from there reverse the nums from firstindex to nums.size() and from 0 to firstindex -1.
         // Time Complexity of the code : O(N)
         // Space Complexity : O(1) , no extra space
 
@@ -218,4 +218,5 @@ int main(){
 
 
     
+
 }
