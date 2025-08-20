@@ -150,9 +150,15 @@ int main()
          // Space Complexity: O(1) , no extra space
          // Here reverse the specific part of the array, like reverse values from index 0 -- n-k-1 , then n-k -- n-1 and if now just reverse the array, will the resultant.
 
+     // Time Complexity -> O (2N) ~ O(N)
+   // Space Complexity: O(1) , no extra space
+
+    Rotate_Array_by_k_Right_3(arr , n , k);
+
     for (auto it : arr)
     {
 
         cout << it << " ";
     }
+
 }
