@@ -6,13 +6,15 @@ using namespace std;
 // 1 0 2 3 2 0 0 4 5 1 --> 1 2 3 2 4 5 1 0 0 0 
 
 // Brute Approach
+ // TC : O(N) + O(x) + O(N-x) ~ O(2N)
+  // SC : O(N)
 
 void Move_Zeros_to_End(int arr[] , int n){
     
     vector<int> temp;
 
         // Step 1: Lets have all the non zeros stored in temp vector   
-            for(int i=0 ; i<n ; i++){
+            for(int i=0 ; i<n ; i++){   // n times
                 
                 if(arr[i] != 0 ){
                     
@@ -22,14 +24,14 @@ void Move_Zeros_to_End(int arr[] , int n){
             }
             
         // Step 2: Now insert these values in the array from start
-            for(int i=0 ; i<temp.size() ; i++){
+            for(int i=0 ; i<temp.size() ; i++){   // x times
                 
                 arr[i] = temp[i];
                 
             }
 
         // Step 3: Now in the remaining places of arr starting from index=temp.size() upto n-1, insert the 0's
-            for(int i = temp.size() ; i<n ; i++){
+            for(int i = temp.size() ; i<n ; i++){    // n-x times
                 
                 arr[i] = 0;
                 
@@ -38,8 +40,41 @@ void Move_Zeros_to_End(int arr[] , int n){
 
 }
 
+// 2nd Approach : Better One --> Solving this without taking extra space
+  // TC : O(N) + O(N) ~ O(2N)
+  // SC : O(1) , no extra space, changes done directly in the original array
+  
+void Move_Zeros_to_End_1(int arr[] , int n){
+    // 3 0 0 1 2 7
+    
+    int index = 0;
+    for(int i=0 ; i<n ; i++){  // N times
+        
+        if(arr[i] != 0){
+            
+            arr[index] = arr[i];  // 3 1 2 7 2 7
+            index++;
+            
+        }
+        
+    }
+    
+    // Now insert the 0s from position = index upto n in arr
+    
+    for(int i=index ; i<n ; i++){   // N times, if all the values are 0 in the array
+        arr[i] = 0;
+        
+    }
+    
+    
+}
 
-// 2nd Approach: 2 pointer concept , j points to first 0 and i starts from j+1
+
+
+// 3rd Approach: 2 pointer concept , j points to first 0 and i starts from j+1
+
+ // TC : O(N) + O(N) ~ O(2N)
+ // SC : O(1) , no extra space is being used , yes changes are going on in the main array, because that is the requirement of the problem.
 
         void Move_Zeros_to_End_2(int arr[] , int n){
             
@@ -102,7 +137,11 @@ int main(){
       
      Move_Zeros_to_End(arr, n);
 
-    // 2nd Approach: Optimal --> 2 pointer approach
+    // 2nd Approach: Better to Optimal  --> Also can do this using the the same array , this is much better in terms of not taking an extra space .
+
+     Move_Zeros_to_End(arr , n);
+
+    // 3rd Approach: Optimal --> 2 pointer approach
      // Lets first find the index for first 0. Keep the pointer lets say j there. And then keep the next pointer lets say i next to j. keep on iterating continously till the last index and j should point at 0. Once arr[i] !=0 , then swap it with arr[j] which consist 0 and then increase j.
  
 
@@ -116,4 +155,5 @@ int main(){
      }
      
     
+
 }
