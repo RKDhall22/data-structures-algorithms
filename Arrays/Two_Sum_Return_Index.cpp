@@ -80,7 +80,9 @@ int main(){
    
    
    // Note : We can solve this using 2 pointer concept by first storing each element and is corresponding index in any other data structure like vector/map and then sort it, so it will be sorted as per the first value that is the element itself and then we can check for target. But this is not an optimal solution because here we are taking Space that is O(2*N), which is not optimal. Hence, in this the TC : O(N*logN) for sorting and SC: O(2*N).
+   // But yes, both 2*N and N space complexity is same, because we does not consider the constant.
    
    
     
+
 }
