@@ -28,6 +28,35 @@ int maximum_sum_Subarray(int arr[] , int n){
     
 }
 
+// 2nd Approach : Optimal one --> Using Kadane's Algorithm 
+    // TC: O(N)
+    // SC: O(1)
+
+int maximum_sum_Subarray_2(int arr[] , int n){
+    
+    int maxsum = INT_MIN;
+    int currsum = 0;
+    
+    for(int i=0 ; i<n ; i++){
+        
+        int currsum = currsum + arr[i];
+        
+        maxsum = max(currsum , maxsum);
+    
+        if(currsum < 0){
+            
+            currsum = 0;
+            
+        }
+        
+    }
+    
+   if(maxsum < 0) return 0;  // For empty subarray case which means if maxsum is negative( if the requirement is there in the problem) , return 0
+   return maxsum;
+    
+}
+
+
 int main(){
     
     int n;
@@ -46,5 +75,12 @@ int main(){
     // SC : O(1)
     
     cout<<maximum_sum_Subarray(arr, n);
+
+    // 2nd Approach : Optimal Approach --> Kadane's Algorithm , will keep on adding the element until the sum is positive, if its negative then make the currsum = 0, and then move on to the next element.
+    // TC : O(N)
+    // SC : O(1)
     
+    cout<<maximum_sum_Subarray_2(arr, n);
+    
+
 }
