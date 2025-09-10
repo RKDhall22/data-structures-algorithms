@@ -2,6 +2,7 @@
 using namespace std;
 
 // Maximum Subarray Sum --> Find the subarray which has maximum sum and return that sum
+// -2 -3 4 -1 -2 1 5 -3  --> Maximum Sum = 7
 
 // 1st Approach : Brute one --> Will check the sum of every subarray in the array and store the sum of the subarray whose sum is maximum in maxsum. Will use currsum for current sum of that particular Subarray.
     // TC : O(N*N)
@@ -84,3 +85,4 @@ int main(){
     
 
 }
+
