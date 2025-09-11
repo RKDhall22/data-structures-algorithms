@@ -40,6 +40,41 @@ void maximum_sum_Subarray(int arr[] , int n){
     
 }
 
+// 2nd Approach: Using Kadane's algo to find the startindex and endindex
+// TC : O(N)
+// SC : O(1)
+
+void maximum_sum_Subarray_2(int arr[] , int n){
+    
+    int maxsum = INT_MIN;
+    int currsum = 0;
+    int startindex = -1;
+    int endindex = -1;
+    
+    for(int i=0 ; i<n ; i++){
+        
+        if(currsum == 0){
+            startindex = i;
+        }
+        
+        currsum = currsum + arr[i];
+        
+        if(currsum > maxsum){
+            maxsum = currsum;
+            endindex = i;
+        }
+        
+        if(currsum < 0){
+            currsum = 0;
+        }
+        
+    }
+    
+    cout<<startindex<<" "<<endindex;
+    
+}
+
+
 
 int main(){
     
@@ -59,8 +94,15 @@ int main(){
     // SC : O(1)
     
     maximum_sum_Subarray(arr, n);
+
+     // 2nd Approach : Using Kadane's algorithm here to find the startindex and endindex of the Subarray which has maximum sum. Will store the value of index in startindex once we get the currentsum value equals to 0 and then keep on moving to next element and as we get currsum value greater than maxsum, that index will be stored in endindex and it changes as if next element is also positive then endindex value also change
+    // TC : O(N)
+   // SC : O(1)
+
+     maximum_sum_Subarray_2(arr , n);
     
 
     
     
+
 }
