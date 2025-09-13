@@ -33,7 +33,30 @@ int buy_sell_Stock(int arr[] , int n){
     
 }
 
+// 2nd Approach : Better one/ Optimal one --> Will use DP concept here to store the min value and then find the difference betn ith element and min element to get the maximum profit
+// TC : O(N)
+// SC : O(1)
 
+// 7 1 5 3 6 4 
+int buy_sell_Stock_2(int arr[] , int n){
+    
+    int min_value = arr[0];
+    int max_profit = INT_MIN;
+    
+    for(int i=1 ; i<n ; i++){   // starting from 1st index, because 0th index is like buy price
+    
+       int cost = arr[i] - min_value;   // Profit 
+       max_profit = max(max_profit , cost);
+       
+       min_value = min(min_value , arr[i]); // everytime we are checking the min_value
+        
+       cout<<cost<<" "<<min_value<<endl;
+       
+    }
+    
+    // cout<<endl;
+    return max_profit;
+}
 
 int main(){
     
@@ -53,5 +76,11 @@ int main(){
     // SC : O(1)
     
     cout<<buy_sell_Stock(arr, n);
+
+     // 2nd Approach: Better one/ Optimal one --> Will use dynamic programming concept where will store the min value before ith index element. Once, get the minimum value, then find the difference with the ith index element to get the max profit.
+    // TC : O(N)
+   // SC : O(1)
     
+    cout<<buy_sell_Stock_2(arr , n);
+
 }
