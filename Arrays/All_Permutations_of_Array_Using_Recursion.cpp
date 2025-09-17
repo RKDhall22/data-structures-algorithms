@@ -56,8 +56,21 @@ int main(){
    // Also will have an Ans vector which stores all the permutations. So, its type will be of vector
    
    vector<vector<int>> ans;
+
+   sort(arr, arr+n);   // If wanted the permutations in dictionary format
    
    Permutation(arr, ds , ans , freq , n);
+
+// To print all the permutations
+   for(const auto& it: ans){
+       
+       for(const auto& it1 : it){
+             cout<<it1<<" ";
+       }
+       
+       cout<<endl;
+   
+   }
   
    
    
