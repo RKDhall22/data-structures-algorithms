@@ -6,7 +6,7 @@ using namespace std;
 
 // 1st Approach : Brute Approach : Will store all the permutations by using Recursion concept and then do the linear search to find out the next permutation
 
-void next_Permutation(vector<int>& arr , int n , vector<vector<int>>& ans, vector<int>& ds, int vis[] , vector<int>& cp){
+void next_Permutation(vector<int>& arr , int n , vector<vector<int>>& ans, vector<int>& ds, int vis[] ){
     
     if(ds.size() == n){       // Base Condition
         ans.push_back(ds);  
@@ -60,7 +60,7 @@ int main(){
     vector<int> cp(arr);
     sort(arr.begin() , arr.end());
     
-    next_Permutation(arr, n , ans, ds, vis , cp );
+    next_Permutation(arr, n , ans, ds, vis);
     
     // for(auto const& it : ans){
         
@@ -96,3 +96,4 @@ else {
    }
     
 }
+
